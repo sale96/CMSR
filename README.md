@@ -2,6 +2,16 @@
 
 > Web store API project
 
+### Project info
+
+- ##### Packages
+     - Microsoft.EntityFrameworkCore
+     - AutoMapper
+     - SwaggerGen
+     - SwaggerUi
+- ##### Usefull url's
+     - ```/swagger``` Swagger UI for *OpenApi* documentation
+
 ### Setup
 
 - In terminal use ``` dotnet restore ``` to restore dependencies in the project.
