@@ -12,14 +12,14 @@ namespace Core.Specifications.EntitySpecifications
         {
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductBrand);
-            AddInclude(x => x.Images);
+            AddInclude(x => x.ProductImages);
         }
 
         public ProductSpecification(int id) : base(x => x.Id == id)
         {
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductBrand);
-            AddInclude(x => x.Images);
+            AddInclude(x => x.ProductImages);
         }
     }
 }

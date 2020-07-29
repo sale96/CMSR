@@ -26,6 +26,8 @@ namespace Infrastructure.Data
                 });
             }
 
+            modelBuilder.Entity<ProductImage>().HasKey(pi => new { pi.ProductId, pi.ImageId });
+
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
 
@@ -33,5 +35,6 @@ namespace Infrastructure.Data
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<ProductBrand> ProductBrands { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
     }
 }
