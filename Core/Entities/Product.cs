@@ -10,11 +10,11 @@ namespace Core.Entities
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string Barcode { get; set; }
+        public int Quantity { get; set; }
         public ProductType ProductType { get; set; }
         public int ProductTypeId { get; set; }
         public ProductBrand ProductBrand { get; set; }
         public int ProductBrandId { get; set; }
-
-        public IList<ProductImage> ProductImages { get; set; }
+        public virtual IList<ProductImage> ProductImages { get; set; }
     }
 }

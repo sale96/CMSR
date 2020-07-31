@@ -9,6 +9,6 @@ namespace Core.Entities
         public string Location { get; set; }
         public string Alt { get; set; }
 
-        public IList<ProductImage> ProductImages { get; set; }
+        public virtual IList<ProductImage> ProductImages { get; set; }
     }
 }

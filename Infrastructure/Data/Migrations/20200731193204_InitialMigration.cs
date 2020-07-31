@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Infrastructure.Migrations
+namespace Infrastructure.Data.Migrations
 {
     public partial class InitialMigration : Migration
     {
@@ -13,7 +13,7 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 7, 29, 21, 45, 28, 412, DateTimeKind.Local).AddTicks(5649)),
+                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 7, 31, 21, 32, 4, 270, DateTimeKind.Local).AddTicks(815)),
                     Location = table.Column<string>(nullable: true),
                     Alt = table.Column<string>(nullable: true)
                 },
@@ -28,7 +28,7 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 7, 29, 21, 45, 28, 420, DateTimeKind.Local).AddTicks(4331)),
+                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 7, 31, 21, 32, 4, 277, DateTimeKind.Local).AddTicks(6277)),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -42,7 +42,7 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 7, 29, 21, 45, 28, 420, DateTimeKind.Local).AddTicks(4500)),
+                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 7, 31, 21, 32, 4, 277, DateTimeKind.Local).AddTicks(6413)),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -56,11 +56,12 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 7, 29, 21, 45, 28, 420, DateTimeKind.Local).AddTicks(3803)),
+                    CreatedAt = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 7, 31, 21, 32, 4, 277, DateTimeKind.Local).AddTicks(5880)),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
                     Description = table.Column<string>(maxLength: 100, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Barcode = table.Column<string>(maxLength: 100, nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
                     ProductTypeId = table.Column<int>(nullable: false),
                     ProductBrandId = table.Column<int>(nullable: false)
                 },

@@ -35,6 +35,8 @@ namespace Infrastructure.Data
                             Name = "Pumma",
                         }
                     );
+
+                    await context.SaveChangesAsync();
                 }
 
                 if (!context.ProductTypes.Any())
@@ -55,6 +57,8 @@ namespace Infrastructure.Data
                             Name = "Sweat suit",
                         }
                     );
+
+                    await context.SaveChangesAsync();
                 }
 
                 if (!context.Images.Any())
@@ -64,6 +68,8 @@ namespace Infrastructure.Data
                         Alt = "No image",
                         Location = "~/Media/Images/Product/noimage.png"
                     });
+
+                    await context.SaveChangesAsync();
                 }
 
                 if (!context.Products.Any())
@@ -75,6 +81,7 @@ namespace Infrastructure.Data
                             Description = "Just a regular T-shirt",
                             Price = 2.20M,
                             Barcode = "901237128931",
+                            Quantity = 3,
                             ProductTypeId = 2,
                             ProductBrandId = 2
                         },
@@ -84,6 +91,7 @@ namespace Infrastructure.Data
                             Description = "Just a regular shoe",
                             Price = 2.90M,
                             Barcode = "89123jhasdas",
+                            Quantity = 4,
                             ProductTypeId = 1,
                             ProductBrandId = 1
                         },
@@ -92,11 +100,14 @@ namespace Infrastructure.Data
                             Name = "Sweat suit 1",
                             Description = "Just a regular Sweat suit",
                             Price = 1.80M,
+                            Quantity = 9,
                             Barcode = "218372jkmasidi",
                             ProductTypeId = 3,
                             ProductBrandId = 3
                         }
                     );
+
+                    await context.SaveChangesAsync();
                 }
 
                 if (!context.ProductImages.Any())
@@ -120,9 +131,9 @@ namespace Infrastructure.Data
                             ImageId = 1
                         }
                     );
-                }
 
-                await context.SaveChangesAsync();
+                    await context.SaveChangesAsync();
+                }
             }
             catch (Exception ex)
             {

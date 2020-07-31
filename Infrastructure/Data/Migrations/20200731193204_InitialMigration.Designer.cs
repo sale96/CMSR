@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Infrastructure.Migrations
+namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20200729194528_InitialMigration")]
+    [Migration("20200731193204_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 7, 29, 21, 45, 28, 412, DateTimeKind.Local).AddTicks(5649));
+                        .HasDefaultValue(new DateTime(2020, 7, 31, 21, 32, 4, 270, DateTimeKind.Local).AddTicks(815));
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
@@ -59,7 +59,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 7, 29, 21, 45, 28, 420, DateTimeKind.Local).AddTicks(3803));
+                        .HasDefaultValue(new DateTime(2020, 7, 31, 21, 32, 4, 277, DateTimeKind.Local).AddTicks(5880));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -78,6 +78,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ProductTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -99,7 +102,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 7, 29, 21, 45, 28, 420, DateTimeKind.Local).AddTicks(4331));
+                        .HasDefaultValue(new DateTime(2020, 7, 31, 21, 32, 4, 277, DateTimeKind.Local).AddTicks(6277));
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -134,7 +137,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 7, 29, 21, 45, 28, 420, DateTimeKind.Local).AddTicks(4500));
+                        .HasDefaultValue(new DateTime(2020, 7, 31, 21, 32, 4, 277, DateTimeKind.Local).AddTicks(6413));
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
