@@ -15,6 +15,6 @@ namespace API.Models.Dto
         public string ProductType { get; set; }
         public string ProductBrand { get; set; }
 
-        public List<string> Images { get; set; }
+        public ImageDto[] Images { get; set; }
     }
 }

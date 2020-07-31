@@ -14,7 +14,8 @@ namespace API.Helpers
         {
             CreateMap<Product, ProductDto>()
                 .ForMember(dto => dto.ProductBrand, p => p.MapFrom(x => x.ProductBrand.Name))
-                .ForMember(dto => dto.ProductType, p => p.MapFrom(x => x.ProductType.Name));
+                .ForMember(dto => dto.ProductType, p => p.MapFrom(x => x.ProductType.Name))
+                .ForMember(dto => dto.Images, p => p.MapFrom(x => x.ProductImages.Select(s => new ImageDto { Location = s.Image.Location, Alt = s.Image.Alt }).ToArray()));
         }
     }
 }

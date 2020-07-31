@@ -99,6 +99,29 @@ namespace Infrastructure.Data
                     );
                 }
 
+                if (!context.ProductImages.Any())
+                {
+                    context.ProductImages.AddRange(
+                        new ProductImage
+                        {
+                            ProductId = 1,
+                            ImageId = 1
+                        },
+
+                        new ProductImage
+                        {
+                            ProductId = 2,
+                            ImageId = 1
+                        },
+
+                        new ProductImage
+                        {
+                            ProductId = 3,
+                            ImageId = 1
+                        }
+                    );
+                }
+
                 await context.SaveChangesAsync();
             }
             catch (Exception ex)
