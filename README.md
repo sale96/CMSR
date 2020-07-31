@@ -11,6 +11,9 @@
      - SwaggerUi
 - ##### Usefull url's
      - ```/swagger``` Swagger UI for *OpenApi* documentation
+- ##### Design patterns
+     - ```Generic repository pattern```
+     - ```Specification pattern```
 
 ### Setup
 
