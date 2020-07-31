@@ -20,6 +20,16 @@ namespace Infrastructure.Data.Repository
             _context = context;
         }
 
+        public async Task<IReadOnlyList<T>> GetAll()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
+
+        public async Task<T> GetEntityById(int id)
+        {
+            return await _context.Set<T>().FindAsync(id);
+        }
+
         public async Task<T> GetEntityWithSpecification(ISpecification<T> specification)
         {
             return await ApplySpecification(specification).FirstOrDefaultAsync();
