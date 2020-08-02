@@ -33,9 +33,9 @@ namespace API.Controllers
         /// <returns>Mapped Dto List of products</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts(string sort)
         {
-            var specification = new ProductSpecification();
+            var specification = new ProductSpecification(sort);
             var products = await _repository.ListAsync(specification);
 
             return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products));
