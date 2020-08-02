@@ -1,4 +1,4 @@
-# Skinet
+# CMSR
 
 > Web store API project
 

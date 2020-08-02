@@ -14,7 +14,7 @@ namespace API.Extensions
         {
             services.AddSwaggerGen(x =>
             {
-                x.SwaggerDoc("v1", new OpenApiInfo { Title = "SkiNet API", Version = "v1" });
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "CMSR API", Version = "v1" });
             });
 
             return services;
@@ -25,7 +25,7 @@ namespace API.Extensions
             app.UseSwagger();
             app.UseSwaggerUI(x =>
             {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "SkiNet API v1");
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "CMSR API v1");
             });
 
             return app;
