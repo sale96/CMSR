@@ -1,8 +1,10 @@
-﻿using API.Models.Dto;
+﻿using API.Errors;
+using API.Models.Dto;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications.EntitySpecifications;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
@@ -30,11 +32,13 @@ namespace API.Controllers
         /// </summary>
         /// <returns>Mapped Dto List of products</returns>
         [HttpGet]
-        public async Task<IReadOnlyList<ProductDto>> Index()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts()
         {
             var specification = new ProductSpecification();
             var products = await _repository.ListAsync(specification);
-            return _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products);
+
+            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products));
         }
 
 
@@ -44,10 +48,18 @@ namespace API.Controllers
         /// <param name="id">Id of the product</param>
         /// <returns>Mapped Dto product</returns>`
         [HttpGet("{id}")]
-        public async Task<ProductDto> Single(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<ProductDto>> GetProduct(int id)
         {
             var specification = new ProductSpecification(id);
             var product = await _repository.GetEntityWithSpecification(specification);
+
+            if (product == null)
+            {
+                return NotFound(new ApiResponse(404));
+            }
+
             return _mapper.Map<Product, ProductDto>(product);
         }
     }
