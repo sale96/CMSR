@@ -4,6 +4,7 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications.EntitySpecifications;
+using Core.Specifications.SpecificationParams;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -33,9 +34,9 @@ namespace API.Controllers
         /// <returns>Mapped Dto List of products</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts(string sort, int? brandId, int? typeId)
+        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts([FromQuery]ProductSpecificationParams productParams)
         {
-            var specification = new ProductSpecification(sort, brandId, typeId);
+            var specification = new ProductSpecification(productParams);
             var products = await _repository.ListAsync(specification);
 
             return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products));
